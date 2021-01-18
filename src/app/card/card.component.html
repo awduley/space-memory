@@ -1,0 +1,7 @@
+<div (click)="doesFlip()" class="card">
+  <div [ngClass]="{'card-front-flip' : cardFlip}" class="card-face card-front">
+    <img class="card-img" [src]="appendedUrl + cardsArray" alt="Random Robohash machine">
+  </div>
+  <div [ngClass]="{'card-back-flip' : cardFlip}" class="card-face card-back">
+  </div>
+</div>

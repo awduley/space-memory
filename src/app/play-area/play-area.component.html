@@ -1,0 +1,57 @@
+<header class="heading-area">
+  
+  <!-- Div for the start overlay -->
+  <div [ngClass]="{'overlay-start' : overlayStart}" class="overlay">
+    <h1 class="overlay-start__main-heading">
+      Welcome to Space Memory!!!
+    </h1>
+    <p class="overlay-start__secondary-heading">
+      Click the button to start!
+    </p>
+    <div (click)="gameStart()" class="btn btn-start">Start</div>
+  </div>
+  <!-- End start overlay -->
+
+  <!-- Div for the win overlay -->
+  <div [ngClass]="{'overlay-win' : overlayWin}" class="overlay">
+    <h1 class="overlay-win__main-heading">
+      Way to go! You Won!!!
+    </h1>
+    <p class="overlay-win__secondary-heading">
+      Click the button to play again!
+    </p>
+    <div (click)="gameStart()" class="btn btn-win">Start</div>
+  </div>
+  <!-- End win overlay -->
+
+  <!-- Div for the lose overlay -->
+  <div [ngClass]="{'overlay-lose' : overlayLose}" class="overlay">
+    <h1 class="overlay-lose__main-heading">
+      Bummer! You Lost!!!
+    </h1>
+    <p class="overlay-lose__secondary-heading">
+      Click the button to try again!
+    </p>
+    <div (click)="gameStart()" class="btn btn-lose">Start</div>
+  </div>
+  <!-- End lose overlay -->
+
+  <!-- h1 and p area -->
+  <h1 class="heading-area__main-heading">Space Memory</h1>
+  <h3 class="heading-area__secondary-heading">
+    Placeholder for now
+  </h3>
+  <!-- End h1 and p area -->
+  
+  <div class="heading-area__info">
+    <p class="heading-area__info--time">Time: {{ currentTime }}<span></span></p>
+    <p class="heading-area__info--flips">Flips: {{ currentFlips }}<span></span></p>
+    <p class="heading-area__info--score">Score: {{ currentScore }}<span></span></p>
+  </div>
+</header>
+
+<section class="play-area">
+  <app-card *ngFor="let card of cardsArray; let i = index;" [cardsArray]="cardsArray[i]" (flipAction)="letCardFlip($event, card)"></app-card>
+</section>
+
+<app-footer></app-footer>

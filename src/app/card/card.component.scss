@@ -1,0 +1,73 @@
+$color-text: rgb(48, 212, 48);
+
+.card {
+  position: relative;
+  width: 12rem;
+  height: 16rem;
+  perspective: 50rem;
+  cursor: pointer;
+
+  .card-back.card-back-flip {
+    transform: rotateY(180deg);
+  }
+
+  .card-front.card-front-flip {
+    transform: rotateY(0);
+  }
+
+  &-face {
+    border-radius: 1rem;
+    transition: all .5s ease-out;
+    box-shadow: 0 0 1rem black;
+  }
+
+  &-front {
+    position: absolute;
+    background: linear-gradient(to bottom, #0000ff, #000);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotateY(-180deg);
+  }
+
+  &-img {
+    width: 100%;
+    height: auto;
+    margin-top: 1rem
+  }
+
+  &-back {
+    position: absolute;
+    background: linear-gradient(45deg, #000 50%, rgb(8, 23, 87) 50%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #000;
+    transform: rotateY(0);
+    backface-visibility: hidden;
+
+    &::after {
+      content: 'Space Memory';
+      position: absolute;
+      top: 24%;
+      left: 60%;
+      transform: translateX(-50%) rotate(45deg);
+      text-align: center;
+      font-weight: bold; 
+      color: $color-text;
+      text-shadow: 0 0 .1rem #fff;
+      font-size: 2.0rem;
+      width: 100%;
+      letter-spacing: 1rem;
+    }
+  }
+}
+
+@media(max-width: 468px) {
+
+  .card{
+    transform: scale(.8);
+  }
+}
